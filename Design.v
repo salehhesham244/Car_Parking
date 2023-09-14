@@ -16,15 +16,15 @@ module Design #(
 );
 
 reg [2:0]cs,ns;
-
+reg EN;
+wire enable,full,empty;
+FIFO f1 (16'hFFFF,sensor_entrance,sensor_exit,clk,clk,arst,enable,full,empty);
 
 /*State-Memory*/
 always @(posedge clk or posedge arst) begin
     if (arst) begin
         cs=IDLE;
-        gate=0;
-        LED_Green=0;
-        LED_RED=0;
+        EN=0;
     end
     else begin
         cs<=ns;
@@ -35,46 +35,58 @@ end
 always @(cs,pass,sensor_entrance,sensor_exit) begin
    case (cs)
     IDLE:begin
-        if (sensor_entrance) begin
+        if (sensor_entrance&&!full) begin
             ns=WAIT_PASS;
         end
     end
     WAIT_PASS:begin
         if (pass==password) begin
             ns=RIGHT_PASS;
+            EN=1;
         end
         else begin
             ns=WRONG_PASS;
+            EN=0;
         end
     end
     RIGHT_PASS:begin
         if (sensor_entrance&&sensor_exit) begin
             ns=STOP;
+            EN=0;
         end
-        else if (sensor_exit) begin
+        else if (sensor_exit&&!empty) begin
             ns=IDLE;
+            EN=1;
         end
         else begin
             ns=RIGHT_PASS;
+            EN=1;
         end
     end
     WRONG_PASS:begin
         if (pass==password) begin
             ns=RIGHT_PASS;
+            EN=1;
         end
         else begin
             ns=WRONG_PASS;
+            EN=0;
         end
     end
     STOP:begin
         if (pass==password) begin
             ns=RIGHT_PASS;
+            EN=1;
         end
         else begin
             ns=STOP;
+            EN=0;
         end
     end
-    default : ns=IDLE;
+    default : begin
+    ns=IDLE;
+    EN=0;    
+    end
 
    endcase
 
@@ -83,7 +95,12 @@ end
 
 /*OutPut-State-Logic(With moore method)*/
 always @(cs) begin
-  if (cs==RIGHT_PASS) begin
+  if (arst) begin
+            gate=0;
+        LED_Green=0;
+        LED_RED=0;
+  end
+  else if (cs==RIGHT_PASS) begin
         gate=1;
         LED_Green=1;
         LED_RED=0;
@@ -98,7 +115,7 @@ always @(cs) begin
         LED_Green=0;
     end
   end
-
+assign enable=EN;
 /*OutPut-State-Logic(with meely method)*/
 // always @(cs,pass) begin
 //   if ((cs==WAIT_PASS)||(cs==STOP)) begin
