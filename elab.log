@@ -1,0 +1,76 @@
+Command: synth_design -rtl -top Design
+Starting synth_design
+Using part: xc7a35ticpg236-1L
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 937.832 ; gain = 88.172
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Design' [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:2]
+	Parameter password bound to: 10 - type: integer 
+	Parameter IDLE bound to: 3'b000 
+	Parameter WAIT_PASS bound to: 3'b001 
+	Parameter WRONG_PASS bound to: 3'b011 
+	Parameter RIGHT_PASS bound to: 3'b010 
+	Parameter STOP bound to: 3'b100 
+INFO: [Synth 8-6157] synthesizing module 'FIFO' [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:148]
+	Parameter FIFO_WIDTH bound to: 16 - type: integer 
+	Parameter FIFO_DEPTH bound to: 512 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element queue_reg was removed. 
+INFO: [Synth 8-6155] done synthesizing module 'FIFO' (1#1) [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:148]
+WARNING: [Synth 8-567] referenced signal 'full' should be on the sensitivity list [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:39]
+WARNING: [Synth 8-567] referenced signal 'empty' should be on the sensitivity list [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:39]
+WARNING: [Synth 8-567] referenced signal 'arst' should be on the sensitivity list [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:101]
+WARNING: [Synth 8-3848] Net sens_entrance in module/entity Design does not have driver. [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Design' (2#1) [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:2]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[15]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[14]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[13]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[12]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[11]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[10]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[9]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[8]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[7]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[6]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[5]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[4]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[3]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[2]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[1]
+WARNING: [Synth 8-3331] design FIFO has unconnected port din_a[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 991.906 ; gain = 142.246
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin f1:wen_a to constant 0 [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/Design.sv:23]
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 991.906 ; gain = 142.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 991.906 ; gain = 142.246
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35ticpg236-1L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/basys_master.xdc]
+Finished Parsing XDC File [D:/Courses/K.W/Design-Diploma/Projetcs/Car-Parking/basys_master.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:38 ; elapsed = 00:00:30 . Memory (MB): peak = 1376.820 ; gain = 527.160
+8 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:31 . Memory (MB): peak = 1376.820 ; gain = 527.160
