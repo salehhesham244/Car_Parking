@@ -1,0 +1,350 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\test_bench#DUT 
+=== Design Unit: work.Design
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        21        21         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\test_bench#DUT 
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File Design.v
+------------------------------------IF Branch------------------------------------
+    22                                      1141     Count coming in to IF
+    22              1                        750         if (arst) begin
+    26              1                        391         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    33                                        23     Count coming in to CASE
+    34              1                          6         IDLE:begin
+    39              1                          3         WAIT_PASS:begin
+    47              1                          6         RIGHT_PASS:begin
+    58              1                          4         WRONG_PASS:begin
+    66              1                          3         STOP:begin
+    74              1                          1         default : ns=IDLE;
+Branch totals: 6 hits of 6 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    35                                         6     Count coming in to IF
+    35              1                          2             if (sensor_entrance) begin
+                                               4     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    40                                         3     Count coming in to IF
+    40              1                          1             if (pass==password) begin
+    43              1                          2             else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    48                                         6     Count coming in to IF
+    48              1                          1             if (sensor_entrance&&sensor_exit) begin
+    51              1                          2             else if (sensor_exit) begin
+    54              1                          3             else begin
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    59                                         4     Count coming in to IF
+    59              1                          1             if (pass==password) begin
+    62              1                          3             else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    67                                         3     Count coming in to IF
+    67              1                          1             if (pass==password) begin
+    70              1                          2             else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    98                                        10     Count coming in to IF
+    98              1                          3       if (cs==RIGHT_PASS) begin
+    101             1                          7         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       6         6         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /\test_bench#DUT  --
+
+  File Design.v
+----------------Focused Condition View-------------------
+Line       40 Item    1  (pass == 10)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (pass == 10)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (pass == 10)_0        -                             
+  Row   2:          1  (pass == 10)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       48 Item    1  (sensor_entrance && sensor_exit)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+       Input Term   Covered  Reason for no coverage   Hint
+      -----------  --------  -----------------------  --------------
+  sensor_entrance         Y
+      sensor_exit         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  sensor_entrance_0     -                             
+  Row   2:          1  sensor_entrance_1     sensor_exit                   
+  Row   3:          1  sensor_exit_0         sensor_entrance               
+  Row   4:          1  sensor_exit_1         sensor_entrance               
+
+----------------Focused Condition View-------------------
+Line       59 Item    1  (pass == 10)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (pass == 10)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (pass == 10)_0        -                             
+  Row   2:          1  (pass == 10)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       67 Item    1  (pass == 10)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (pass == 10)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (pass == 10)_0        -                             
+  Row   2:          1  (pass == 10)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       98 Item    1  (cs == 2)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+   (cs == 2)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (cs == 2)_0           -                             
+  Row   2:          1  (cs == 2)_1           -                             
+
+
+FSM Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    FSM States                       5         5         0   100.00%
+    FSM Transitions                 10         7         3    70.00%
+
+================================FSM Details================================
+
+FSM Coverage for instance /\test_bench#DUT  --
+
+FSM_ID: cs
+    Current State Object : cs
+    ----------------------
+    State Value MapInfo :
+    ---------------------
+Line          State Name               Value
+----          ----------               -----
+  34                IDLE                   0
+  39           WAIT_PASS                   1
+  58          WRONG_PASS                   3
+  47          RIGHT_PASS                   2
+  66                STOP                   4
+    Covered States :
+    ----------------
+                   State           Hit_count
+                   -----           ---------
+                    IDLE                1129          
+               WAIT_PASS                   2          
+              WRONG_PASS                   2          
+              RIGHT_PASS                   6          
+                    STOP                   2          
+    Covered Transitions :
+    ---------------------
+Line            Trans_ID           Hit_count          Transition          
+----            --------           ---------          ----------          
+  36                   0                   2          IDLE -> WAIT_PASS             
+  44                   1                   1          WAIT_PASS -> WRONG_PASS          
+  41                   2                   1          WAIT_PASS -> RIGHT_PASS          
+  60                   4                   1          WRONG_PASS -> RIGHT_PASS          
+  52                   6                   2          RIGHT_PASS -> IDLE            
+  49                   7                   1          RIGHT_PASS -> STOP            
+  68                   8                   1          STOP -> RIGHT_PASS            
+    Uncovered Transitions :
+    -----------------------
+Line            Trans_ID          Transition          
+----            --------          ----------          
+  23                   3          WAIT_PASS -> IDLE   
+  23                   5          WRONG_PASS -> IDLE  
+  23                   9          STOP -> IDLE        
+
+
+    Summary                       Bins      Hits    Misses  Coverage
+    -------                       ----      ----    ------  --------
+        FSM States                   5         5         0   100.00%
+        FSM Transitions             10         7         3    70.00%
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      19        19         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\test_bench#DUT  --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File Design.v
+    1                                                module Design #(       
+    2                                                       parameter password=10,//the password of the parking.
+    3                                                       parameter IDLE=3'b000,//ideal state.
+    4                                                       parameter WAIT_PASS=3'b001,//getting password state.
+    5                                                       parameter WRONG_PASS=3'b011,//wrong password state.
+    6                                                       parameter RIGHT_PASS=3'b010,//correct password state.
+    7                                                       parameter STOP=3'b100//stop state if both cai in and out simulatanously.
+    8                                                ) (
+    9                                                    input  clk,
+    10                                                   input  arst,
+    11                                                   input  [3:0] pass,
+    12                                                   input  sensor_entrance,
+    13                                                   input  sensor_exit,
+    14                                                   output reg gate    
+    15                                               );
+    16                                               
+    17                                               reg [2:0]cs,ns;
+    18                                               
+    19                                               
+    20                                               /*State-Memory*/
+    21              1                       1141     always @(posedge clk or posedge arst) begin
+    22                                                   if (arst) begin
+    23              1                        750             cs=IDLE;
+    24              1                        750             gate=0;
+    25                                                   end
+    26                                                   else begin
+    27              1                        391             cs<=ns;
+    28                                                   end
+    29                                               end
+    30                                                   
+    31                                               /*Next-State-Logic*/
+    32              1                         23     always @(cs,pass,sensor_entrance,sensor_exit) begin
+    33                                                  case (cs)
+    34                                                   IDLE:begin
+    35                                                       if (sensor_entrance) begin
+    36              1                          2                 ns=WAIT_PASS;
+    37                                                       end
+    38                                                   end
+    39                                                   WAIT_PASS:begin
+    40                                                       if (pass==password) begin
+    41              1                          1                 ns=RIGHT_PASS;
+    42                                                       end
+    43                                                       else begin
+    44              1                          2                 ns=WRONG_PASS;
+    45                                                       end
+    46                                                   end
+    47                                                   RIGHT_PASS:begin
+    48                                                       if (sensor_entrance&&sensor_exit) begin
+    49              1                          1                 ns=STOP;
+    50                                                       end
+    51                                                       else if (sensor_exit) begin
+    52              1                          2                 ns=IDLE;
+    53                                                       end
+    54                                                       else begin
+    55              1                          3                 ns=RIGHT_PASS;
+    56                                                       end
+    57                                                   end
+    58                                                   WRONG_PASS:begin
+    59                                                       if (pass==password) begin
+    60              1                          1                 ns=RIGHT_PASS;
+    61                                                       end
+    62                                                       else begin
+    63              1                          3                 ns=WRONG_PASS;
+    64                                                       end
+    65                                                   end
+    66                                                   STOP:begin
+    67                                                       if (pass==password) begin
+    68              1                          1                 ns=RIGHT_PASS;
+    69                                                       end
+    70                                                       else begin
+    71              1                          2                 ns=STOP;
+    72                                                       end
+    73                                                   end
+    74              1                          1         default : ns=IDLE;
+    75                                               
+    76                                                  endcase
+    77                                               
+    78                                               
+    79                                               end
+    80                                               
+    81                                               /*OutPut-State-Logic(with meely method)*/
+    82                                               // always @(cs,pass) begin
+    83                                               //   if ((cs==WAIT_PASS)||(cs==STOP)) begin
+    84                                               //     if (pass==password) begin
+    85                                               //         gate=1;
+    86                                               //     end
+    87                                               //     else begin
+    88                                               //         gate=0;
+    89                                               //     end
+    90                                               //   end
+    91                                               //   else begin
+    92                                               //     gate=0;
+    93                                               //   end  
+    94                                               // end
+    95                                               /*OutPut-State-Logic(With moore method)*/
+    96                                               
+    97              1                         10     always @(cs) begin
+    98                                                 if (cs==RIGHT_PASS) begin
+    99              1                          3             gate=1;
+    100                                                  end
+    101                                                  else begin
+    102             1                          7             gate=0;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         30        30         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\test_bench#DUT  --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                              arst           1           1      100.00 
+                                               clk           1           1      100.00 
+                                           cs[2-0]           1           1      100.00 
+                                              gate           1           1      100.00 
+                                           ns[2-0]           1           1      100.00 
+                                         pass[0-3]           1           1      100.00 
+                                   sensor_entrance           1           1      100.00 
+                                       sensor_exit           1           1      100.00 
+
+Total Node Count     =         15 
+Toggled Node Count   =         15 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (30 of 30 bins)
+
+
+Total Coverage By Instance (filtered view): 95.00%
+
